@@ -93,7 +93,8 @@ echo'<pre>COOKIE<br>';
 print_r($_COOKIE);
 echo'</pre>';
 
-if(isset($_COOKIE['LOGIN'])){
+if(!isset($_COOKIE['LOGIN'])){
+
     /*
     Se il cookie non esiste (!$_COOKIE) esegui la procedura tra le graffe
     
@@ -102,7 +103,10 @@ if(isset($_COOKIE['LOGIN'])){
     */
 if(isset($_POST['uname'])){
     $userName=$_POST['uname']; // i valori andrebbero sanitizzati
+}else{
+    $userName='';
 }
+
     if(isset($_POST['psw'])){
     $myPassword=$_POST['psw'];
     }
@@ -137,6 +141,7 @@ if(isset($_POST['uname'])){
             }
         // al prossimo ricaricamento di pagina il cookie ESISTERA'
         // così forzo il ricaricamento
+           
     
     Header('Location: login.php');
         
@@ -189,13 +194,13 @@ mysqli_close($link);
             <form enctype="multipart/form-data" action="login.php" method="post">
             <div class="container">
             <div class="imgcontainer">
-            <img src="img/img_avatar2.png" alt="Avatar" class="avatar">
+                <img src="img/avatar_scelto.jpg" alt="Avatar" class="avatar">
             </div>    
             <label for="uname"><b>Username</b></label>
             <input type="text" placeholder="Enter Username" name="uname" required>
 
             <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
+            <input type="password" placeholder="Enter Username" name="psw" required>
 
             <button type="submit">Login</button>
             <label>
