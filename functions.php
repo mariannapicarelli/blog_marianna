@@ -44,7 +44,7 @@ if(isset($_COOKIE['LOGIN'])){
     // la sintassi che segue $array['admin'] aggiunge una riga all'array $array assegnando
     // alla chiave 'admin', che non esisteva ancora, il valore a destra dell'uguale
     
-    $array['admin'] = '/php/corso/admin/admin.php';
+    $array['admin'] = '/corsomarianna/admin/admin.php';
     
     // è l'equivalente, più breve, della funzione array_push
 }
@@ -53,7 +53,7 @@ if(isset($_COOKIE['LOGIN'])){
 
 $arrayAdmin=array(
     'Pagine'=>'#',
-    'Post'=>'/php/corso/admin/adminPost.php'
+    'Post'=>'/corsomarianna/admin/adminPost.php'
 );
 
 function buildmenu ($idwrapper, $array){

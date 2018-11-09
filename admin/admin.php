@@ -22,7 +22,7 @@ rappresenta la connessione con il DB. Se non ci riesce non restituisce nulla
 */
 
 //## ESERCIZIO ##: salvare i dati necessari alla connessione in variabili... oppure in un array
-$link = mysqli_connect("localhost", "utentecorsophp", "password", "corsophp");
+$link = mysqli_connect($configDB['server'],$configDB['utente'],$configDB['password'],$configDB['db']);
 
 if (!$link) {
     /* se la connessione fallisse (se $link non esistesse, il punto esclamativo davanti alla variabile
@@ -98,7 +98,7 @@ eseguite quindi le vostre operazioni prima di chudere la connessione, ad es:
             /*Questa sezione verrà mostrata solo se autenticati
             * in caso contrario verrà mostrato un testo che invita ad autenticarsi
              *  */
-            if(isset($_COOKIE['LOGIN'])){
+            if(!isset($_COOKIE['LOGIN'])){
                 echo'<p class="error">Per accedere all\'admin dovrete <a href="login.php">autenticarvi</a></p>';
             }else{
              echo'<h2>Amministrazione</h2>';
